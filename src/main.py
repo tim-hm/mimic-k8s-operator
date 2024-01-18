@@ -44,7 +44,7 @@ def main() -> None:
     def get_version():
         return {"app": name, "port": port, "log_level": log_level}
 
-    uvicorn.run(app, port=port, log_level=log_level)
+    uvicorn.run(app, host="0.0.0.0", port=port, log_level=log_level)
 
 
 if __name__ == "__main__":
