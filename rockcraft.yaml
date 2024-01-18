@@ -1,4 +1,4 @@
-name: ubuntu-metrics-service
+name: mimic-service
 base: ubuntu@22.04
 version: '0.1'
 license: GPL-3.0
