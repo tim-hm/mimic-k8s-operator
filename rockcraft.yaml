@@ -1,6 +1,6 @@
 name: mimic-service
 base: ubuntu@22.04
-version: '0.1'
+version: '0.2'
 license: GPL-3.0
 
 summary: Elevator pitch for your amazing rock
@@ -28,4 +28,3 @@ parts:
       craftctl default
       mkdir $CRAFT_PART_INSTALL/app
       cp -r src/* $CRAFT_PART_INSTALL/app
-      
