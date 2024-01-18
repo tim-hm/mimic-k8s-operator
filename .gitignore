@@ -2,3 +2,4 @@
 venv
 .env
 *.rock
+**/__pycache__
