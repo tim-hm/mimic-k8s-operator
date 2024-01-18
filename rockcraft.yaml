@@ -1,0 +1,31 @@
+name: ubuntu-metrics-service
+base: ubuntu@22.04
+version: '0.1'
+license: GPL-3.0
+
+summary: Elevator pitch for your amazing rock
+description: This is my my-rock-name's description.
+
+platforms:
+  amd64:
+
+services:
+  app:
+    override: replace
+    startup: enabled
+    command: "python3 /app/main.py"
+
+parts:
+  app:
+    plugin: python
+    source: .
+    stage-packages:
+      - python3
+      - python3-venv
+    python-requirements:
+      - requirements.txt
+    override-build: |
+      craftctl default
+      mkdir $CRAFT_PART_INSTALL/app
+      cp -r src/* $CRAFT_PART_INSTALL/app
+      
