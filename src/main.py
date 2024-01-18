@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, Response, status
 
 
-def load_env_var(name: str) -> str:
-    value = os.getenv(name)
+def load_env_var(name: str, default=None) -> str:
+    value = os.getenv(name, default)
     if value is None:
         raise EnvironmentError(f"Missing env var: {name}")
     else:
@@ -18,11 +18,14 @@ def main() -> None:
     load_dotenv()
 
     try:
-        port = int(load_env_var("APP_PORT"))
+        port = int(load_env_var("APP_PORT", 8080))
     except ValueError:
         raise EnvironmentError("APP_PORT must be an integer")
 
-    log_level: str = load_env_var("APP_LOG_LEVEL")
+    log_level: str = load_env_var("APP_LOG_LEVEL", "info")
+
+    # Require name to be set because I'm learnign how all this works
+    # and this helps me trace from the charm pebble layer to the container
     name: str = load_env_var("APP_NAME")
 
     # mimic fastapi's log format
