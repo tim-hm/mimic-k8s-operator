@@ -1,10 +1,12 @@
-name: mimic-service
+name: mimic
 base: ubuntu@22.04
 version: '0.2'
 license: GPL-3.0
 
-summary: Elevator pitch for your amazing rock
-description: This is my my-rock-name's description.
+summary: Sail ho shrouds spirits boom mizzenmast yardarm
+description: |
+  Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl.
+  Swab barque interloper chantey doubloon starboard grog black jack gangway rutters.
 
 platforms:
   amd64:
